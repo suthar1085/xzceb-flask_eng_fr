@@ -1,24 +1,15 @@
 import unittest
-from translator import english_to_french
-from translator import french_to_english
+from translator import english_to_french, french_to_english
 
-class TextMyModule(unittest.TestCase):
-    def test_f2e_null(self):
-        self.assertEqual(french_to_english(' '), ' ')
+class TestMachineTranslation(unittest.TestCase):
+    def test_english_to_french(self):
+        self.assertEqual(english_to_french('Hello'), 'Bonjour')  
+        self.assertEqual(english_to_french('Advantage'), 'Avantage')
     
-    def test_e2f_null(self):
-        self.assertEqual(english_to_french(' '), ' ')
-
-    def test_f2e_hello(self):
+    def test_french_to_english(self):
         self.assertEqual(french_to_english('Bonjour'), 'Hello')
-
-    def test_e2f_hello(self):
-        self.assertEqual(english_to_french('Hello'), 'Bonjour')
-
-    def test_f2e_zero(self):
-        self.assertEqual(french_to_english('0'), '0')
+        self.assertEqual(french_to_english('Avantage'), 'Advantage')
     
-    def test_e2f_zero(self):
-        self.assertEqual(english_to_french('0'), '0')
 
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
